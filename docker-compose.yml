@@ -5,10 +5,13 @@ services:
     container_name: "db"
     image: microsoft/mssql-server-windows-express
     environment:
-      - SA_PASSWORD=Pass@word1
-      - ACCEPT_EULA=Y
+      sa_password: Pass@word1
+      accept_eula: Y
+      attach_dbs: '[{"dbName":"saascommerce","dbFiles":["C:\\data\\saascommerce.mdf","C:\\data\\saascommerce.ldf"]}]'
     ports:
       - "1433:1433"
+    volumes:
+      - "c:\\src\\data:c:\\data"
   saascommerce:
     container_name: "SaaSCommerce"
     depends_on: 
@@ -20,4 +23,5 @@ services:
     build:
       context: ./SaaSCommerce
       dockerfile: Dockerfile
+
 

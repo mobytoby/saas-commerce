@@ -13,7 +13,7 @@ namespace SaaSCommerce.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202007141905572_initial"; }
+            get { return "202007142309483_initial"; }
         }
         
         string IMigrationMetadata.Source
